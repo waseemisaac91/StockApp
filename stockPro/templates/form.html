@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+ {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+    <h1>Fetch Stock Data</h1>
+    <form method="POST" action="{% url 'stockPro:fetch_data' %}" class="form-horizontal">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="ticker" class="col-sm-5 control-label">Stock Ticker:</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="ticker" name="ticker" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="start_date" class="col-sm-5 control-label">Start Date (YYYY-MM-DD):</label>
+        <div class="col-sm-7">
+          <input type="date" class="form-control" id="start_date" name="start_date" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="end_date" class="col-sm-5 control-label">End Date (YYYY-MM-DD):</label>
+        <div class="col-sm-7">
+          <input type="date" class="form-control" id="end_date" name="end_date" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Fetch Data</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
